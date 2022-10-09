@@ -43,7 +43,6 @@ pipeline{
                  sh 'docker build -t gouru1m/spring-boot-mongo .'
                  sh 'docker build -t tomcat:${BUILD_NUMBER} .'
                  sh 'docker run -itd --name srini36 -p 2900:8080 tomcat:${BUILD_NUMBER}'
-                 sh label: 'Test1', script: 'echo this is a secret $docker_pwd this is not "$dockerRegistry"'
              }
          }
         stage('Push Docker Image'){
